@@ -3,6 +3,7 @@ const cors = require("cors");
 const axios = require("axios")
 
 const app = express();
+const PORT = process.env.PORT || 3001
 app.use(express.json());
 app.use(cors({ origin: true }));
 
@@ -22,4 +23,6 @@ app.post("/authenticate", async (req, res) => {
   }
 });
 
-app.listen(3001);
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`)
+});
